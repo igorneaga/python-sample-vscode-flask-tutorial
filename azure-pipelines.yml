@@ -5,7 +5,7 @@ schedules:
   displayName: "Every Saturday at 8 PM CST"
   branches:
     include:
-    - develop
+    - main
   always: true
 
 pool:
