@@ -5,23 +5,17 @@ pool:
   name: 'DemoAgentPool'
 
 steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.8'
-    addToPath: true
-
 - script: |
-    python -m venv venv
-    source venv/bin/activate
-    pip install -r requirements.txt
+    echo "Install dependencies"
+    # Add commands to install dependencies
   displayName: 'Install dependencies'
 
 - script: |
-    source venv/bin/activate
-    pytest
-  displayName: 'Run tests'
+    echo "Build your project"
+    # Add commands to build your project
+  displayName: 'Build project'
 
 - script: |
-    source venv/bin/activate
-    python -m flask run
-  displayName: 'Run Flask application'
+    echo "Run tests"
+    # Add commands to run your tests
+  displayName: 'Run tests'
