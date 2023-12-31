@@ -1,5 +1,12 @@
-trigger:
-- main
+trigger: none
+
+schedules:
+- cron: "0 2 * * 0"
+  displayName: "Every Saturday at 8 PM CST"
+  branches:
+    include:
+    - develop
+  always: true
 
 pool:
   name: 'DemoAgentPool'
