@@ -9,7 +9,7 @@ pool:
   name: 'DemoAgentPool'
 
 variables:
-    ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
+    ${{ if eq(variables['Build.Reason'], 'Schedule') }}:
       exampleParameter: 'prod'
     ${{ else }}:
       exampleParameter: 'dev'
