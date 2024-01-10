@@ -1,5 +1,5 @@
 parameters:
-- name: exampleParameter
+- name: ExampleParameter
   type: string
   default: 'Hello World'
 
@@ -9,10 +9,10 @@ pool:
   name: 'DemoAgentPool'
 
 variables:
-    ${{ if eq(variables['Build.Reason'], 'Schedule') }}:
-      exampleParameter: 'Schedule'
-    ${{ else }}:
-      exampleParameter: ${{parameters.exampleParameter}}
+  ${{ if eq(variables['Build.Reason'], 'Schedule') }}:
+    ExampleParameter: 'Schedule'
+  ${{ else }}:
+    ExampleParameter: ${{parameters.exampleParameter}}
 
 steps:
 - script: echo $(exampleParameter)
