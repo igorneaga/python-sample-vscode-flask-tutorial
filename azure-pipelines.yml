@@ -10,10 +10,10 @@ pool:
 
 variables:
     ${{ if eq(variables['Build.Reason'], 'Schedule') }}:
-      exampleParameter: 'prod'
+      exampleParameter: 'Schedule'
     ${{ else }}:
-      exampleParameter: 'dev'
+      exampleParameter: ${{parameters.exampleParameter}}
 
 steps:
-- script: echo ${{parameters.exampleParameter}}
+- script: echo $(exampleParameter)
   displayName: 'Echo custom parameter'
