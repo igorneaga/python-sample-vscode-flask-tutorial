@@ -9,10 +9,10 @@ pool:
   name: 'DemoAgentPool'
 
 variables:
-  ${{ if eq(variables['Build.Reason'], 'Schedule')}}:
-     exampleParameter: 'Schedule'
-  $ {{else}}:
-     exampleParameter: ${{parameters.exampleParameter}}
+    ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
+      exampleParameter: 'prod'
+    ${{ else }}:
+      exampleParameter: 'dev'
 
 steps:
 - script: echo ${{parameters.exampleParameter}}
