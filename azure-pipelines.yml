@@ -8,6 +8,13 @@ trigger: none
 pool:
   name: 'DemoAgentPool'
 
+variables:
+  ${{ if eq(variables['Build.Reason'], 'Schedule')}}:
+    exampleParameter: 'Schedule'
+
+  ${{ if ne(variables['Build.Reason'], 'Schedule')}}:
+    exampleParameter: ${{parameters.exampleParameter}}
+
 steps:
-- script: echo ${{ parameters.exampleParameter }}
+- script: echo ${{parameters.exampleParameter}}
   displayName: 'Echo custom parameter'
