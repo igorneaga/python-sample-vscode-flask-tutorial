@@ -9,10 +9,13 @@ pool:
   name: 'DemoAgentPool'
 
 variables:
-  exampleParameter: ${{ if eq(variables['Build.Reason'], 'Schedule') }}:
-                      'Schedule'
-                    ${{ else }}:
-                      ${{ parameters.exampleParameter }}
+  # Set the exampleParameter to 'Schedule' if the build reason is 'Schedule'
+  ${{ if eq(variables['Build.Reason'], 'Schedule')}}:
+    exampleParameter: 'Schedule'
+  # Otherwise, use the provided exampleParameter
+  ${{ if ne(variables['Build.Reason'], 'Schedule')}}:
+    exampleParameter: ${{parameters.exampleParameter}}
+
 
 steps:
 - script: echo ${{parameters.exampleParameter}}
