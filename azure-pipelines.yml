@@ -1,20 +1,13 @@
+parameters:
+- name: exampleParameter
+  type: string
+  default: 'Hello World'
+
 trigger: none
 
 pool:
   name: 'DemoAgentPool'
 
 steps:
-- script: |
-    echo "Install dependencies"
-    # Add commands to install dependencies
-  displayName: 'Install dependencies'
-
-- script: |
-    echo "Build your project"
-    # Add commands to build your project
-  displayName: 'Build project'
-
-- script: |
-    echo "Run tests"
-    # Add commands to run your tests
-  displayName: 'Run tests'
+- script: echo ${{ parameters.exampleParameter }}
+  displayName: 'Echo custom parameter'
