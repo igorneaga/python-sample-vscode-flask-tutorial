@@ -11,7 +11,7 @@ pool:
 variables:
   ${{ if eq(variables['Build.Reason'], 'Schedule')}}:
      exampleParameter: 'Schedule'
-  $ {{ else }}:
+  $ {{else}}:
      exampleParameter: ${{parameters.exampleParameter}}
 
 steps:
