@@ -15,5 +15,5 @@ variables:
     ExampleParameter: ${{parameters.ExampleParameter}}
 
 steps:
-- script: echo $(ExampleParameter)
+- script: echo ${{parameters.ExampleParameter}}
   displayName: 'Echo custom parameter'
