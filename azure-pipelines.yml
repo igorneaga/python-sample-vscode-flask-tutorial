@@ -12,8 +12,8 @@ variables:
   ${{ if eq(variables['Build.Reason'], 'Schedule') }}:
     ExampleParameter: 'Schedule'
   ${{ else }}:
-    ExampleParameter: ${{parameters.exampleParameter}}
+    ExampleParameter: ${{parameters.ExampleParameter}}
 
 steps:
-- script: echo $(exampleParameter)
+- script: echo $(ExampleParameter)
   displayName: 'Echo custom parameter'
